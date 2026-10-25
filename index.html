@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="theme-color" content="#05060f" />
+<title>星尘穿梭 · Stardust Run</title>
+<link rel="stylesheet" href="style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app">
+  <canvas id="scene"></canvas>
+
+  <!-- 顶部信息栏 -->
+  <header id="hud" class="hud">
+    <div class="hud-box">
+      <span class="hud-label">分数</span>
+      <span id="score" class="hud-value">0</span>
+    </div>
+    <div class="hud-box">
+      <span class="hud-label">最高分</span>
+      <span id="best" class="hud-value">0</span>
+    </div>
+    <div class="hud-box">
+      <span class="hud-label">速度</span>
+      <span id="speed" class="hud-value">1.0x</span>
+    </div>
+  </header>
+
+  <!-- 提示条 -->
+  <div id="tip" class="tip">方向键 / WASD 移动 · 空格 开始</div>
+
+  <!-- 开始界面 -->
+  <section id="startScreen" class="overlay show">
+    <div class="panel">
+      <h1 class="title">星尘穿梭</h1>
+      <p class="subtitle">STARDUST RUN</p>
+      <p class="desc">驾驶低多边形飞船冲入霓虹隧道，<br />躲开能量屏障，收集发光星尘球。</p>
+      <ul class="legend">
+        <li><i class="dot orb"></i>能量球 +10 分</li>
+        <li><i class="dot rock"></i>撞到障碍 游戏结束</li>
+      </ul>
+      <button id="startBtn" class="btn">开始游戏</button>
+      <p class="keys">键盘：方向键 / WASD　·　触屏：拖动跟随</p>
+    </div>
+  </section>
+
+  <!-- 结束界面 -->
+  <section id="overScreen" class="overlay">
+    <div class="panel">
+      <h1 class="title danger">任务失败</h1>
+      <p class="subtitle">GAME OVER</p>
+      <div class="result">
+        <div class="result-item">
+          <span class="hud-label">本局分数</span>
+          <span id="finalScore" class="result-value">0</span>
+        </div>
+        <div class="result-item">
+          <span class="hud-label">最高分</span>
+          <span id="finalBest" class="result-value">0</span>
+        </div>
+      </div>
+      <p id="newRecord" class="record">新纪录！</p>
+      <button id="restartBtn" class="btn">重新开始</button>
+      <p class="keys">按 空格 / 回车 快速重开</p>
+    </div>
+  </section>
+
+  <!-- 移动端虚拟方向提示 -->
+  <div id="hint" class="hint">按住画面拖动即可操控飞船</div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
